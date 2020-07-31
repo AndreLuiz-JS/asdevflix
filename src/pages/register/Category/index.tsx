@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import BaseTemplate from '../../../components/BaseTemplate';
-import FormField from '../../../components/FormField';
+import { FormField } from '../../../components/FormField';
+import { Button } from '../../../components/Button';
 
 interface FormValues {
   id: number;
@@ -10,7 +11,7 @@ interface FormValues {
   color: string;
 }
 
-const RegisterCategory = () => {
+const RegisterCategory = (): ReactElement => {
   const initialFormValues: FormValues = {
     id: 0,
     name: '',
@@ -42,7 +43,9 @@ const RegisterCategory = () => {
 
         <FormField label="Cor" type="color" value={formValues.color} name="color" onChange={handleChangeForm} />
 
-        <button>Cadastrar</button>
+        <Button as="a" aria-label="Cadastrar">
+          Cadastrar
+        </Button>
       </form>
 
       <ul>

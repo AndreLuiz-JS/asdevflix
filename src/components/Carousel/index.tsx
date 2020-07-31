@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, { SliderItem } from './components/Slider';
 
-function VideoCardGroup(props) {
+interface Video {
+  titulo: string;
+  url: string;
+}
+
+interface LinkExtra {
+  url: string;
+  text: string;
+}
+
+interface Category {
+  titulo: string;
+  cor: string;
+  link_extra: LinkExtra;
+  videos: Video[];
+}
+
+interface Props {
+  ignoreFirstVideo: boolean;
+  category: Category;
+}
+
+function VideoCardGroup(props: Props): ReactElement {
   const { ignoreFirstVideo, category } = props || false;
 
   const categoryTitle = category.titulo;

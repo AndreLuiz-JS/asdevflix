@@ -2,7 +2,11 @@ import React from 'react';
 
 import { VideoContainer, ResponsiveIframe } from './styles';
 
-function YouTubeIframeResponsive(props) {
+interface Props {
+  youtubeID: string;
+}
+
+function YouTubeIframeResponsive(props: Props) {
   const { youtubeID } = props || '';
   return (
     <VideoContainer>

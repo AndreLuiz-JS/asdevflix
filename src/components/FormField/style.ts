@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+const Input = styled.input`
   margin: 0 auto 15px;
   line-height: 32px;
   border-radius: 5px;
@@ -11,7 +11,7 @@ export const Input = styled.input`
   }
 `;
 
-export const TextArea = styled.textarea`
+const TextArea = styled.textarea`
   width: 100%;
   line-height: 20px;
   margin: 0 auto 15px;
@@ -23,3 +23,8 @@ export const TextArea = styled.textarea`
     }
   }
 `;
+
+const Label = styled.label``;
+const LabelText = styled.span``;
+
+export { Input, TextArea, Label, LabelText };

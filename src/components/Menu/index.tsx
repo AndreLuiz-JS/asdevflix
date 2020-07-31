@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import './Menu.css';
 
-import Button from '../Button';
+import { Button } from '../Button';
 
-const Menu = () => {
+const Menu = (): JSX.Element => {
   return (
     <nav className="Menu">
       <Link to="/">

@@ -2,11 +2,11 @@ import React from 'react';
 import BaseTemplate from '../../components/BaseTemplate';
 import SnakeGame from '../../components/SnakeGame';
 
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 
 import { Title, Paragraph } from './style';
 
-const Page404 = () => {
+const Page404 = (): JSX.Element => {
   return (
     <BaseTemplate>
       <Title>

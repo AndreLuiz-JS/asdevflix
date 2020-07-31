@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const ContentAreaContainer = styled.section`
+interface Props {
+  backgroundImage: string;
+}
+
+const ContentAreaContainer = styled.section`
   margin-left: 5%;
   margin-right: 5%;
   height: 100%;
@@ -15,7 +19,7 @@ export const ContentAreaContainer = styled.section`
   }
 `;
 
-ContentAreaContainer.Item = styled.div`
+const ContentAreaContainerItem = styled.div`
   width: 50%;
   display: inline-block;
   margin-bottom: 50px;
@@ -24,7 +28,7 @@ ContentAreaContainer.Item = styled.div`
   }
 `;
 
-ContentAreaContainer.Category = styled.h1`
+const ContentAreaContainerCategory = styled.h1`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -45,13 +49,13 @@ ContentAreaContainer.Category = styled.h1`
   }
 `;
 
-ContentAreaContainer.Description = styled.p`
+const ContentAreaContainerDescription = styled.p`
   @media (max-width: 800px) {
     display: none;
   }
 `;
 
-ContentAreaContainer.Title = styled.h2`
+const ContentAreaContainerTitle = styled.h2`
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
@@ -65,11 +69,11 @@ ContentAreaContainer.Title = styled.h2`
   }
 `;
 
-export const BannerMainContainer = styled.section`
+const BannerMainContainer = styled.section`
   height: 80vh;
   position: relative;
   color: #fff;
-  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
+  background-image: ${(props: Props) => `url(${props.backgroundImage})`};
   background-size: cover;
   background-position: center;
   @media (max-width: 800px) {
@@ -100,7 +104,7 @@ export const BannerMainContainer = styled.section`
   }
 `;
 
-export const WatchButton = styled.button`
+const WatchButton = styled.button`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   cursor: pointer;
@@ -123,3 +127,13 @@ export const WatchButton = styled.button`
     display: block;
   }
 `;
+
+export {
+  ContentAreaContainer,
+  ContentAreaContainerItem,
+  ContentAreaContainerCategory,
+  ContentAreaContainerDescription,
+  ContentAreaContainerTitle,
+  BannerMainContainer,
+  WatchButton,
+};

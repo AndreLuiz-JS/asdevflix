@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import Menu from '../Menu';
@@ -15,7 +15,7 @@ const Main = styled.main`
   padding: 50px 5% 0;
 `;
 
-const BaseTemplate = ({ children }: Props) => {
+const BaseTemplate = ({ children }: Props): ReactElement => {
   return (
     <>
       <Menu />
