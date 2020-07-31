@@ -14,12 +14,11 @@ interface ContainerProps {
 
 const Container = styled.ul`
   padding: 0;
-  margin: 0;
-  overflow-y: visible;
-  overflow-x: hidden;
+  margin: 0 -5vw 0;
+  overflow: visible;
   .slick-prev,
   .slick-next {
-    z-index: 50;
+    z-index: 1;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -31,6 +30,19 @@ const Container = styled.ul`
       font-size: 30px;
       color: ${(props: ContainerProps) => props.arrowColor};
     }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 250%;
+      height: 120%;
+      border-radius: 50%;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-image: radial-gradient(#000000ff, #000000bb, #00000000, #00000000, #00000000);
+    }
   }
 
   .slick-prev:hover:not(.slick-disabled),
@@ -41,22 +53,24 @@ const Container = styled.ul`
   }
   .slick-prev {
     left: 0;
-    background-image: linear-gradient(to right, #000000ee, #00000099, #00000055, #00000000);
+
     &:before {
       margin-right: 10px;
+    }
+    &:after {
+      transform: scale(2) translate(-45px, -13px);
     }
   }
   .slick-next {
     right: 0;
-    background-image: linear-gradient(to right, #00000000, #00000055, #00000099, #000000ee);
     &:before {
       margin-left: 10px;
     }
+    &:after {
+      transform: scale(2) translateY(-13px);
+    }
   }
-  .slick-list,
-  .slick-track {
-    overflow-y: visible;
-  }
+
   .slick-slide {
     display: inline-block;
   }

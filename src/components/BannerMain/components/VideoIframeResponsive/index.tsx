@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { VideoContainer, ResponsiveIframe } from './styles';
 
@@ -6,7 +6,7 @@ interface Props {
   youtubeID: string;
 }
 
-function YouTubeIframeResponsive(props: Props) {
+function YouTubeIframeResponsive(props: Props): ReactElement {
   const { youtubeID } = props || '';
   return (
     <VideoContainer>

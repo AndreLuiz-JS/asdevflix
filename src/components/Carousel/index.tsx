@@ -16,12 +16,12 @@ interface LinkExtra {
 interface Category {
   titulo: string;
   cor: string;
-  link_extra: LinkExtra;
+  link_extra?: LinkExtra;
   videos: Video[];
 }
 
 interface Props {
-  ignoreFirstVideo: boolean;
+  ignoreFirstVideo?: boolean;
   category: Category;
 }
 
