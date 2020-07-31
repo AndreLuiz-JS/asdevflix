@@ -22,7 +22,9 @@ const RegisterCategory = (): ReactElement => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
-    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:3333/categorias' : '';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3333/categorias'
+      : 'https://asdevflix.glitch.me/categorias';
     fetch(URL).then(async (promise) => {
       const data = await promise.json();
       setCategories([...data]);
