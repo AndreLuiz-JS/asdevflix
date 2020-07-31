@@ -15,5 +15,5 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src", "public/snake-game-scripts"]
+  "include": ["src"]
 }

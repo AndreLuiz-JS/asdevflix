@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import BaseTemplate from '../../../components/BaseTemplate';
 import { FormField } from '../../../components/FormField';
@@ -20,6 +20,15 @@ const RegisterCategory = (): ReactElement => {
   };
   const [categories, setCategories] = useState([] as FormValues[]);
   const [formValues, setFormValues] = useState(initialFormValues);
+
+  useEffect(() => {
+    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:3333/categorias' : '';
+    fetch(URL).then(async (promise) => {
+      const data = await promise.json();
+      setCategories([...data]);
+    });
+  }, []);
+
   return (
     <BaseTemplate>
       <h1>Cadastro de Categoria</h1>

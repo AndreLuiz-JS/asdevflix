@@ -1,26 +1,24 @@
 import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
+import 'styled-components';
 
-import { Input, TextArea, Label, LabelText } from './style';
+import { Input, TextArea, Label, LabelText, FormFieldWrapper } from './style';
+import { DefaultTheme } from 'styled-components';
 
-interface Props {
-  label: string;
-  name: string;
-  value: string;
-  type: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-}
-
-const FormField = (props: Props): ReactElement => {
+const FormField = (props: DefaultTheme): ReactElement => {
   const { label, name, value, type, onChange } = props;
+  const isTextArea = type === 'textarea';
   return (
-    <div>
-      <Label>
-        {`${label}: `}
-        {type !== 'textarea' && <Input type={type} value={value} name={name} onChange={onChange} />}
-        {type === 'textarea' && <TextArea value={value} name={name} onChange={onChange} />}
+    <FormFieldWrapper>
+      <Label htmlFor={name}>
+        {isTextArea ? (
+          <TextArea value={value} name={name} onChange={onChange} />
+        ) : (
+          <Input type={type} value={value} name={name} onChange={onChange} />
+        )}
+        <LabelText>{`${label}: `}</LabelText>
       </Label>
-    </div>
+    </FormFieldWrapper>
   );
 };
 
