@@ -14,6 +14,7 @@ const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   transition: opacity 0.3s;
+  background: transparent;
 
   &:hover,
   &:focus {
@@ -21,4 +22,15 @@ const Button = styled.button`
   }
 `;
 
-export { Button };
+const ButtonChangePage = styled(Button)`
+  border: none;
+`;
+
+const ButtonDelete = styled(Button)`
+  color: var(--color-warning);
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+`;
+
+export { Button, ButtonChangePage, ButtonDelete };

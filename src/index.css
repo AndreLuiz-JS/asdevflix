@@ -15,6 +15,7 @@
   --frontEnd: #6bd1ff;
   --backEnd: #00c86f;
   --color-black-dark: #141414;
+  --color-warning: #ca2424;
 }
 
 html,
@@ -22,6 +23,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-black-dark);
+  overflow-x: hidden;
 }
 
 a {

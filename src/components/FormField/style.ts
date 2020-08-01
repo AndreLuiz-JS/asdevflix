@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme, css } from 'styled-components';
 
 const FormFieldWrapper = styled.div`
   position: relative;
@@ -52,33 +52,40 @@ const inputAndTextAreaStyle = `
   &:focus:not([type='color']) + ${LabelText} {
     transform: scale(0.6) translateY(-10px);
   }
-  ${(props: DefaultTheme) => {
-    const hasValue = Boolean(props.value);
-    if (hasValue)
-      return `
-        &:not([type='color']) + ${LabelText} {
-          transform: scale(0.6) translateY(-10px);
-        }
-      `;
-  }}
 `;
 
 const Input = styled.input`
   ${inputAndTextAreaStyle}
+  ${(props: DefaultTheme) => {
+    const hasValue = props.value.length > 0;
+    return hasValue
+      ? css`
+          &:not([type='color']) + ${LabelText} {
+            transform: scale(0.6) translateY(-10px);
+          }
+        `
+      : '';
+  }}
 `;
 
 const TextArea = styled.textarea`
   ${inputAndTextAreaStyle}
   min-height: 150px;
+  ${(props: DefaultTheme) => {
+    const hasValue = props.value.length > 0;
+    return hasValue
+      ? css`
+          &:not([type='color']) + ${LabelText} {
+            transform: scale(0.6) translateY(-10px);
+          }
+        `
+      : '';
+  }}
 `;
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    label: string;
     value: string;
-    type: string;
-    name: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   }
 }
 

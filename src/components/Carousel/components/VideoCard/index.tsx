@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { VideoCardContainer } from './styles';
 
 interface Props {
@@ -11,7 +11,7 @@ function getYouTubeId(youtubeURL: string) {
   return youtubeURL.replace(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/, '$7');
 }
 
-function VideoCard(props: Props) {
+function VideoCard(props: Props): ReactElement {
   const { videoTitle, videoURL, categoryColor } = props || '';
   const image = `https://img.youtube.com/vi/${getYouTubeId(videoURL)}/hqdefault.jpg`;
 

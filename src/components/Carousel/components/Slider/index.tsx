@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { ReactElement } from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
 
@@ -58,7 +58,7 @@ const Container = styled.ul`
       margin-right: 10px;
     }
     &:after {
-      transform: scale(2) translate(-45px, -13px);
+      transform: scale(2) translate(-45px, 13px);
     }
   }
   .slick-next {
@@ -67,13 +67,40 @@ const Container = styled.ul`
       margin-left: 10px;
     }
     &:after {
-      transform: scale(2) translateY(-13px);
+      transform: scale(2) translateY(13px);
     }
   }
+  .slick-track {
+    display: inline-flex;
+    overflow: hidden;
+    height: 242px;
+    min-width: 100vw;
 
-  .slick-slide {
-    display: inline-block;
-  }
+    .slick-slide:last-child {
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: scale(1.2) translate(-60px, 20px);
+        opacity: 1 !important;
+      }
+    }
+    .slick-slide:first-child {
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: scale(1.2) translate(60px, 20px);
+        opacity: 1 !important;
+        z-index:1;
+      }
+    }
+
+    .slick-slide:not(:last-child):not(:first-child) {
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: scale(1.2) translateY(20px);
+        opacity: 1 !important;
+        z-index: 1;
+      }
+    }
+
 `;
 
 export const SliderItem = styled.li`
@@ -86,7 +113,7 @@ export const SliderItem = styled.li`
   }
 `;
 
-const Slider = ({ children, arrowColor }: SliderProps) => (
+const Slider = ({ children, arrowColor }: SliderProps): ReactElement => (
   <Container arrowColor={arrowColor}>
     <SlickSlider
       {...{
@@ -96,7 +123,7 @@ const Slider = ({ children, arrowColor }: SliderProps) => (
         centerMode: false,
         variableWidth: true,
         adaptiveHeight: true,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         initialSlide: 1,
       }}
